@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>lorca-angularjs</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<link rel="stylesheet" href="/assets/css/angular-material.css">
+		<link rel="stylesheet" href="/assets/css/md-data-table.css">
+		<link rel="stylesheet" href="/assets/css/select2.css">
+		<link rel="stylesheet" href="/assets/css/bootstrap.css">
+		<script src="/assets/js/jquery.js"></script>
+		<script src="/assets/js/angular.js"></script>
+		<script src="/assets/js/angular-route.js"></script>
+		<script src="/assets/js/angular-animate.js"></script>
+		<script src="/assets/js/angular-aria.js"></script>
+		<script src="/assets/js/angular-messages.js"></script>
+		<script src="/assets/js/angular-sanitize.js"></script>
+		<script src="/assets/js/angular-material.js"></script>
+		<script src="/assets/js/async.js"></script>
+		<script src="/assets/js/md-data-table.js"></script>
+		<script src="/assets/js/ui-bootstrap-tpls.js"></script>
+		<script src="/assets/js/select2.js"></script>
+		<script src="/assets/js/angular-select2.js"></script>
+		<script src="/assets/js/aes.js"></script>
+		<script src="/assets/js/moment.js"></script>  
+		<script src="/assets/js/app.js"></script>
+	</head>
+	<script>
+		angular.module('lorca-angularjs').controller('ctrl', ["$mdSidenav", "$mdToast", "$timeout", function ($mdSidenav, $mdToast, $timeout) {
+				var app = this;
+				console.log("%c(c) 2017 - 2018 Loable Technologies https://loable.tech",
+				"background: white; color: darkblue; font-size: 15px;");
+				app.count = 0;
+
+				app.render = async() => {
+					app.count =  `${await window.counterValue()}`;
+					$timeout(function(){
+						$scope.$apply();
+					},1);
+				}
+
+				app.increment = async() => {
+					await counterAdd(1);
+					app.render();
+				};
+
+				app.decrement = async() => {
+					await counterAdd(-1);
+					app.render();
+				};
+
+				app.render();
+			}]);
+	</script>
+	<body ng-app="lorca-angularjs" ng-controller="ctrl as app" ng-cloak layout-fill layout="column" style="width: 100%; height: 100vh;">
+		<p>Button Pressed: {{ app.count }}</p>
+		<md-button class="md-raised md-primary" flex ng-click="app.increment()">Increment</md-button>
+		<md-button class="md-raised" flex ng-click="app.decrement()">Decrement</md-button>
+	</body>
+</html>
+                       
