@@ -12,6 +12,15 @@ cd lorca-angularjs
 go get -u
 ```
 
-for Windows: build-windows.bat
-for MacOS: ./build-macos.sh
-for LinuxL ./build-linux.sh
+###Windows
+```
+build-windows.bat
+```
+###MacOS
+```
+./build-macos.sh
+```
+###Linux 
+```
+./build-linux.sh
+```
